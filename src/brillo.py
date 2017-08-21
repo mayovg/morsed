@@ -31,10 +31,16 @@ class FiltroBrillo(Filtro):
                 bp = b+brillo
                 if rp > 255:
                     rp = 255
+                elif rp < 0:
+                    rp = 0
                 elif gp > 255:
                     gp = 255
+                elif gp < 0:
+                    gp = 0
                 elif bp > 255:
                     bp = 255
+                elif bp < 0:
+                    bp = 0
                 self.img.putpixel((i,j),(rp,gp,bp))
         return self.img.save(self.nombre_img+"_brillo", "JPEG")
 
