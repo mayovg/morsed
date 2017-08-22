@@ -19,16 +19,26 @@ class FiltroBrillo(Filtro):
     def brillo(self, brillo):
         """
         Metodo para modificar el brillo
+        Una nueva imagen con el filtro aplicado es guardada 
+        en el mismo directorio de origen.
+        :returns la imagen que se guardó.
         """
+        # verifica que el brillo esté en un rango válido
         if brillo not in range(-128, 129):
             print ("no es un brillo valido!!")
             return
         for i in range(0, self.width):
             for j in range(0, self.height):
                 r,g,b = self.img.getpixel((i,j))
+                # suma el valor del pixel al del brillo
                 rp = r+brillo
                 gp = g+brillo
                 bp = b+brillo
+
+                """
+                Si el nuevo valor de los pixeles es mayor a 255
+                o menor a 0, lo dejamos como 255 o 0 según sea el caso
+                """
                 if rp > 255:
                     rp = 255
                 elif rp < 0:
@@ -42,6 +52,6 @@ class FiltroBrillo(Filtro):
                 elif bp < 0:
                     bp = 0
                 self.img.putpixel((i,j),(rp,gp,bp))
-        return self.img.save(self.nombre_img+"_brillo.jpg", "JPEG")
+        return self.img.save(self.nombre_img+"_brillo"+str(brillo)+".jpg", "JPEG")
 
                 

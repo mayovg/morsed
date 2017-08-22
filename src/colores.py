@@ -19,35 +19,44 @@ class FiltroColores(Filtro):
 
     def rojo(self):
         """
-        Dejamos unicamente el color rojo en la imagen
+        Dejamos unicamente el color rojo en la imagen.
+        Una nueva imagen con el filtro aplicado es guardada 
+        en el mismo directorio de origen.
+        :returns la imagen que se guardó.
         """
         for i in range(0, self.width):
             for j in range(0, self.height):
                 r,g,b = self.img.getpixel((i,j))
                 self.img.putpixel((i,j), (r,0,0))
-        return self.img.save(self.nombre_img+"rojo","JPEG")
+        return self.img.save(self.nombre_img+"rojo.jpg","JPEG")
             
 
     def verde(self):
         """
-        Dejamos unicamente el color verde en la imagen
+        Dejamos unicamente el color verde en la imagen.
+        Una nueva imagen con el filtro aplicado es guardada 
+        en el mismo directorio de origen.
+        :returns la imagen que se guardó.
         """
         for i in range(0, self.width):
             for j in range(0, self.height):
                 r,g,b = self.img.getpixel((i,j))
                 self.img.putpixel((i,j), (0,g,0))
-        return self.img.save(self.nombre_img+"verde","JPEG")
+        return self.img.save(self.nombre_img+"verde.jpg","JPEG")
 
     
     def azul(self):
         """
-        Dejamos unicamente el color azul en la imagen
+        Dejamos unicamente el color azul en la imagen.
+        Una nueva imagen con el filtro aplicado es guardada 
+        en el mismo directorio de origen.
+        :returns la imagen que se guardó.
         """
         for i in range(0, self.width):
             for j in range(0, self.height):
                 r,g,b = self.img.getpixel((i,j))
                 self.img.putpixel((i,j), (0,0,b))
-        return self.img.save(self.nombre_img+"azul","JPEG")
+        return self.img.save(self.nombre_img+"azul.jpg","JPEG")
             
 
     def azar(self):
@@ -56,11 +65,11 @@ class FiltroColores(Filtro):
         """
         color = random.randint(0,2)
         if color == 0:
-            return rojo()
+            return self.rojo()
         elif color == 1:
-            return verde()
+            return self.verde()
         else:
-            return azul()
+            return self.azul()
 
         
     
