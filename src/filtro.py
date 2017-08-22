@@ -13,8 +13,9 @@ class Filtro:
     Clase base para manejar las caracteristicas en comun de los filtros
     """
     def __init__(self, img):
+        self.nombre_img = img
         self.img = Image.open(img) # la imagen a la que se aplicara el filtro
-        self.width = img.getWidth() # el ancho de la imagen
-        self.height = img.getHeight() # la altura de la imagen
+        self.width = self.img.width # el ancho de la imagen
+        self.height = self.img.height # la altura de la imagen
 
     

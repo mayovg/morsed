@@ -14,7 +14,7 @@ class FiltroColores(Filtro):
     Clase para modelar los filtros de un solo color (RGB)
     """
     def __init__(self, img):
-        super(FiltroColores, self, img).__init__()
+        super(FiltroColores, self).__init__(img)
 
 
     def rojo(self):

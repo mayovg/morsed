@@ -5,7 +5,6 @@
   :author: Luis Pablo Mayo Vega
 
 """
-import glob, os, sys
 from filtro import Filtro
 from PIL import Image
 
@@ -14,7 +13,7 @@ class FiltroGrises(Filtro):
     Clase para modelar los filtros de tonos de gris
     """
     def __init__(self, img):
-        super(FiltroGrises, self, img).__init__()
+        super(FiltroGrises, self).__init__(img)
         
     
     def grisPorPromedio(self):

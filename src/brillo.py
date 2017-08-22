@@ -13,10 +13,10 @@ class FiltroBrillo(Filtro):
     Clase para modificar el brillo de una imagen
     """
     def __init__(self, img):
-        super(FiltroBrillo, self, img).__init__()
+        super(FiltroBrillo, self).__init__(img)
 
 
-    def brillo(brillo):
+    def brillo(self, brillo):
         """
         Metodo para modificar el brillo
         """
@@ -42,6 +42,6 @@ class FiltroBrillo(Filtro):
                 elif bp < 0:
                     bp = 0
                 self.img.putpixel((i,j),(rp,gp,bp))
-        return self.img.save(self.nombre_img+"_brillo", "JPEG")
+        return self.img.save(self.nombre_img+"_brillo.jpg", "JPEG")
 
                 
